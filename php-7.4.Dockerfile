@@ -2,7 +2,7 @@ FROM php:7.4
 
 # install build requirements
 RUN apt update && \
-    apt -y install make git curl zlib1g-dev libpng-dev libjpeg62-turbo-dev libfreetype6-dev libxml2-dev libonig-dev libcurl4-openssl-dev libldap2-dev libicu-dev locales gettext make && \
+    apt -y install make git curl zip zlib1g-dev libpng-dev libjpeg62-turbo-dev libfreetype6-dev libxml2-dev libonig-dev libcurl4-openssl-dev libldap2-dev libicu-dev locales gettext make && \
     rm -r /var/lib/apt/lists /var/cache/apt/archives/*
 
 # generate locales required by the test suite
