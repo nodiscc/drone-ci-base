@@ -17,7 +17,7 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr --with-jpeg-dir=/usr &&
 RUN curl --silent --show-error https://getcomposer.org/installer --output composer-setup.php && \
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
-# disable xdebug
+# disable xdebug: it significantly speed up tests and linter, and we don't use coverage yet
 RUN phpenv config-rm xdebug.ini || echo 'No xdebug config.' 
 
 # create Drone CI user/environment
