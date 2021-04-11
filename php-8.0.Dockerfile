@@ -11,7 +11,7 @@ RUN printf "de_DE.UTF-8 UTF-8\nen_US.utf8 UTF-8\nfr_FR.utf8 UTF-8\n" > /etc/loca
     dpkg-reconfigure --frontend=noninteractive locales
 
 # configure/intall php extensions
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-install gd simplexml json mbstring intl curl gettext ldap
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-install gd intl gettext ldap
 
 # install composer
 RUN curl --silent --show-error https://getcomposer.org/installer --output composer-setup.php && \
