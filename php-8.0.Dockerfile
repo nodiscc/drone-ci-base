@@ -15,7 +15,8 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-in
 
 # install composer
 RUN curl --silent --show-error https://getcomposer.org/installer --output composer-setup.php && \
-    php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+    php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
+    composer self-update --2
 
 # disable xdebug: it significantly speed up tests and linter, and we don't use coverage yet
 RUN phpenv config-rm xdebug.ini || echo 'No xdebug config.' 
